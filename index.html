@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXORA | AI Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo"><img src="logo.jpg" alt=""></div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="men.html" class="active">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Summer</a></li>
+                <li><a href="#">Winter</a></li>
+                <li><a href="test.html">Try with AI</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <div class="cart-icon" id="cart-icon">🛒<span id="cart-count">0</span></div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- <section class="hero">
+        <div class="hero-content">
+            <h1>Style Meets Technology</h1>
+            <p>Discover clothes that fit *you* — powered by AI</p>
+            <a href="test.html" class="cta-button">Try with AI</a>
+        </div>
+    </section> -->
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <img src="img1.jpg" class="carousel-slide active" alt="Slide 1">
+            <img src="img1.jpg" class="carousel-slide" alt="Slide 2">
+            <img src="img.jpg" class="carousel-slide" alt="Slide 3">
+            <img src="img1.jpg" class="carousel-slide" alt="Slide 4">
+            <img src="img5.jpg" class="carousel-slide" alt="Slide 5">
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <a href="men.html">
+                <div class="category-card"><span>Men</span></div>
+            </a>
+            <div class="category-card">Women</div>
+            <div class="category-card">Summer</div>
+            <div class="category-card">Winter</div>
+        </div>
+    </section>
+
+
+    <!-- AI Info -->
+    <section class="ai-info reveal-on-scroll">
+        <h2>AI-Powered Styling</h2>
+        <p>Upload your photo. Let AI suggest the perfect outfit for your body shape.</p>
+        <a href="upload.html" class="cta-button">Upload Image</a>
+    </section>
+
+    <!-- Products -->
+    <section class="product-filter-section">
+        <h2>New and Popular</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">ALL</button>
+            <button class="filter-btn " data-category="shirts">SHIRTS</button>
+            <button class="filter-btn" data-category="trousers">TROUSERS</button>
+            <button class="filter-btn" data-category="t-shirts">T-SHIRTS</button>
+            <button class="filter-btn" data-category="jeans">JEANS</button>
+            <button class="filter-btn" data-category="shorts">SHORTS</button>
+        </div>
+
+        <div class="suggestion" id="filtered-products">
+            <a href="product.html" class="product-card-link">
+                <div class="product-card" data-category="shirts" data-name="Slim Fit Shirt" data-price="1299"
+                    data-img="img1.jpg">
+                    <img src="img1.jpg" alt="Shirt">
+                    <p class="product-title">Slim Fit Shirt</p>
+                    <p class="product-price">₹1,299</p>
+                    <button class="buy-btn" onclick="event.preventDefault()">Add to Cart</button>
+                </div>
+            </a>
+
+
+            <div class="product-card" data-category="trousers" data-name="Linen Blend Trousers" data-price="1799"
+                data-img="img1.jpg">
+                <img src="img1.jpg" alt="Trousers">
+                <p class="product-title">Linen Blend Trousers</p>
+                <p class="product-price">₹1,799</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <div class="product-card" data-category="jeans">
+                <img src="img1.jpg" alt="Jeans">
+                <p class="product-title">Baggy Fit Jeans</p>
+                <p class="product-price">₹1,699</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <div class="product-card" data-category="t-shirts">
+                <img src="img1.jpg" alt="T-Shirt">
+                <p class="product-title">Cotton Oversized Tee</p>
+                <p class="product-price">₹799</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <div class="product-card" data-category="shorts">
+                <img src="img1.jpg" alt="Shorts">
+                <p class="product-title">Chino Shorts</p>
+                <p class="product-price">₹899</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="close-cart" id="close-cart">×</span>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <p>Subtotal: ₹<span id="cart-subtotal">0</span></p>
+            <div class="cart-actions">
+                <button id="buy-now-btn">Buy Now</button>
+                <button id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Button -->
+    <div id="chatbot-btn">🤖</div>
+    <!-- Chatbot Window -->
+    <div id="chatbot-container">
+        <div class="chat-header">
+            <h4>Nexora AI Assistant</h4>
+        </div>
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Ask about outfit..." />
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10 px-4">
+        <div class="logo" style="display: flex;justify-content: flex-start;"><img src="logo.jpg" alt=""></div>
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+                <h3 class="font-bold mb-2">Shop</h3>
+                <ul>
+                    <li>Men</li>
+                    <li>Women</li>
+                    <li>Accessories</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Support</h3>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Returns</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Company</h3>
+                <ul>
+                    <li>About Us</li>
+                    <li>AI Tech</li>
+                    <li>Blog</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Follow Us</h3>
+                <ul>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                    <li>Facebook</li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center text-gray-400 mt-10">© 2025 NEXORA. All rights reserved.</p>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+
+</html>
