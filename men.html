@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXORA - AI Fashion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-black font-sans">
+  <!-- Header -->
+  <header class="sticky top-0 bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+      <div class="text-2xl font-bold">NEXORA</div>
+      <nav class="hidden md:flex gap-6">
+        <a href="#" class="hover:text-orange-500">Home</a>
+        <a href="#" class="hover:text-orange-500">Men</a>
+        <a href="#" class="hover:text-orange-500">Women</a>
+        <a href="#" class="hover:text-orange-500">Accessories</a>
+        <a href="#" class="hover:text-orange-500">AI Try-On</a>
+      </nav>
+      <div class="flex gap-4 items-center">
+        <button title="Search">🔍</button>
+        <button title="Wishlist">♥</button>
+        <button title="Cart">🛒<span class="text-sm">(0)</span></button>
+        <button title="Account">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gray-50 py-12 px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Perfect Look, Powered by AI</h1>
+    <p class="text-lg mb-6">Discover clothing that suits your style and body.</p>
+    <div class="flex justify-center gap-4">
+      <button class="bg-black text-white px-6 py-2 rounded">Shop Men</button>
+      <!-- <button class="border border-black px-6 py-2 rounded">Shop Women</button> -->
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="max-w-7xl mx-auto px-4 py-10">
+    <div class="flex gap-4 overflow-x-auto">
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Shirts">
+        <span>Shirts</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Jeans">
+        <span>Jeans</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Ethnic">
+        <span>Ethnic</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Jackets">
+        <span>Jackets</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Accessories">
+        <span>Accessories</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Shirts">
+        <span>Shirts</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Jeans">
+        <span>Jeans</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Ethnic">
+        <span>Ethnic</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Jackets">
+        <span>Jackets</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[100px]">
+        <img src="img1.jpg" class="w-20 h-20 rounded-full mb-2" alt="Accessories">
+        <span>Accessories</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer Banner -->
+  <div class="bg-orange-100 text-center py-3 text-orange-600 font-medium">
+    🔥 20% Off on First Order | Free AI Try-On | Free Shipping Above ₹999
+  </div>
+
+  <!-- New & Trending -->
+  <section class="max-w-7xl mx-auto px-4 py-10">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-semibold">New & Trending</h2>
+      <select class="border px-3 py-1 rounded">
+        <option>Recommended</option>
+        <option>Newest</option>
+        <option>Price: Low to High</option>
+      </select>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="border p-3 rounded shadow">
+        <img src="img1.jpg" alt="Classic Polo" class="w-full mb-2">
+        <h3>Classic Polo</h3>
+        <p class="text-sm text-gray-500">₹ 799</p>
+        <button class="bg-black text-white px-4 py-1 mt-2 w-full rounded">Try with AI</button>
+      </div>
+      <div class="border p-3 rounded shadow">
+        <img src="img/jeans-blue.jpg" alt="Slim Fit Jeans" class="w-full mb-2">
+        <h3>Slim Fit Jeans</h3>
+        <p class="text-sm text-gray-500">₹ 1,299</p>
+        <button class="bg-black text-white px-4 py-1 mt-2 w-full rounded">Try with AI</button>
+      </div>
+      <div class="border p-3 rounded shadow">
+        <img src="img/crop-top.jpg" alt="Crop Top" class="w-full mb-2">
+        <h3>Crop Top</h3>
+        <p class="text-sm text-gray-500">₹ 699</p>
+        <button class="bg-black text-white px-4 py-1 mt-2 w-full rounded">Try with AI</button>
+      </div>
+      <div class="border p-3 rounded shadow">
+        <img src="img/kurta.jpg" alt="Printed Kurta" class="w-full mb-2">
+        <h3>Printed Kurta</h3>
+        <p class="text-sm text-gray-500">₹ 1,499</p>
+        <button class="bg-black text-white px-4 py-1 mt-2 w-full rounded">Try with AI</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Try-On Upload Section -->
+  <section class="bg-gray-50 py-10 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Upload Image</h2>
+    <p class="mb-4">Discover outfits suited to your style.</p>
+    <button class="bg-black text-white px-6 py-2 rounded">Upload Image</button>
+  </section>
+
+  <!-- Review Section -->
+  <section class="max-w-3xl mx-auto px-4 py-10 text-center">
+    <div class="bg-white p-6 rounded shadow">
+      <p class="text-orange-500 text-xl">★★★★★</p>
+      <p class="italic mt-2">“The AI try-on feature is amazing! It helped me find the right outfit so easily. Absolutely love NEXORA!”</p>
+      <p class="mt-4 font-semibold">- Sarah M.</p>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-10 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Style Guru 🧠</h2>
+    <p class="mb-4">Get fashion tips & early access to new drops</p>
+    <input type="email" placeholder="Email address" class="px-4 py-2 rounded text-black">
+    <button class="ml-2 px-6 py-2 bg-white text-purple-700 rounded">Subscribe</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div>
+        <h3 class="font-bold mb-2">Shop</h3>
+        <ul>
+          <li>Men</li>
+          <li>Women</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Support</h3>
+        <ul>
+          <li>FAQ</li>
+          <li>Returns</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Company</h3>
+        <ul>
+          <li>About Us</li>
+          <li>AI Tech</li>
+          <li>Blog</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Follow Us</h3>
+        <ul>
+          <li>Instagram</li>
+          <li>YouTube</li>
+          <li>Facebook</li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center text-gray-400 mt-10">© 2025 NEXORA. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+/* men.css */
+
+/* Reset + Basics */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background: #f7f7f7;
+    color: #111;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+}
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #111;
+}
+.navbar ul {
+    display: flex;
+    gap: 1.5rem;
+}
+.navbar li {
+    list-style: none;
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+.cart-icon {
+    position: relative;
+    font-size: 1.2rem;
+}
+.cart-icon span {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* Featured Categories */
+.featured-categories {
+    padding: 2rem 1rem;
+    background-color: #fff;
+}
+.featured-categories h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.8rem;
+    max-width: 1200px;
+    margin: auto;
+}
+.category-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #111;
+    transition: transform 0.3s;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.category-item:hover {
+    transform: translateY(-4px);
+}
+.category-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.category-item p {
+    padding: 0.6rem 0.5rem;
+}
+
+/* New and Popular */
+.new-popular {
+    padding: 2rem 1rem;
+    background: #fff;
+}
+.new-popular h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.filters button {
+    padding: 0.4rem 1rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.filters button.active,
+.filters button:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+}
+.product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.product-card h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0.5rem 0.2rem;
+}
+.product-card p {
+    font-size: 0.9rem;
+    margin: 0 0.5rem 0.8rem;
+    color: #555;
+}
+.product-card .wishlist {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
