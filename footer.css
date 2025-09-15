@@ -1,0 +1,85 @@
+footer {
+  background-color: #1f2937; /* Tailwind: gray-800 */
+  color: white;
+  padding: 3rem 1rem;
+}
+
+footer .logo img {
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+/* Grid Layout */
+footer .max-w-7xl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  footer .max-w-7xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Headings */
+footer h3 {
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  font-size: 16px;
+}
+
+/* List items */
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 0.5rem;
+  color: #d1d5db; /* Tailwind: gray-300 */
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+footer ul li:hover {
+  color: #ffffff;
+}
+
+/* Copyright text */
+footer p {
+  text-align: center;
+  color: #9ca3af; /* Tailwind: gray-400 */
+  margin-top: 2rem;
+  font-size: 13px;
+}
+footer ul li {
+  position: relative;
+}
+
+footer ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+footer ul li:hover::after {
+  width: 100%;
+}
+footer .logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+footer .logo img {
+  height: 60px; /* Increased size */
+}
