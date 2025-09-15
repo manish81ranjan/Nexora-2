@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classic Tee | NEXORA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .left,
+        .right {
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
+        }
+
+        .main-img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .thumbs img {
+            width: 60px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .thumbs {
+            margin-top: 10px;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #222;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .images {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .images img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .details h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #f4c150;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .stock {
+            color: #e53935;
+            margin-bottom: 20px;
+        }
+
+        .selectors {
+            margin-bottom: 20px;
+        }
+
+        .selector-group {
+            margin-bottom: 15px;
+        }
+
+        .selector-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .selector-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .option {
+            padding: 8px 14px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .option.active {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        .color-circle {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+
+        .color-circle.active {
+            border-color: #000;
+            outline: 2px solid #000;
+        }
+
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .qty button {
+            padding: 4px 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .qty span {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .add-cart {
+            padding: 12px 20px;
+            background: #000;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-cart:hover {
+            background: #444;
+        }
+
+        .desc-tabs {
+            margin-top: 40px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            border-color: #000;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .related {
+            margin-top: 60px;
+            padding: 0 16px;
+        }
+
+        .related h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Grid for related items */
+        .related-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        /* Related item card */
+        .related-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding: 15px 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eee;
+        }
+
+        .related-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Image responsiveness */
+        .related-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Product Name */
+        .related-item p {
+            margin-top: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #222;
+        }
+
+        /* Subtext like category or offer */
+        .related-item span {
+            color: #777;
+            font-size: 13px;
+            margin-top: 3px;
+            display: block;
+        }
+
+        /* Media Query for Smaller Devices */
+        @media (max-width: 600px) {
+            .related-item img {
+                height: 180px;
+            }
+
+            .related h3 {
+                font-size: 18px;
+            }
+
+            .related-item p {
+                font-size: 14px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo"><img src="logo.jpg" alt=""></div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="men.html" class="active">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Summer</a></li>
+                <li><a href="#">Winter</a></li>
+                <li><a href="test.html">Try with AI</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <div class="cart-icon" id="cart-icon">🛒<span id="cart-count">0</span></div>
+    </header>
+
+    <div class="container">
+        <div class="left">
+            <img src="img1.jpg" class="main-img" id="mainImg">
+            <div class="thumbs">
+                <img src="img1.jpg" onclick="setImage(this.src)">
+                <img src="img1.jpg" onclick="setImage(this.src)">
+                <img src="img1.jpg" onclick="setImage(this.src)">
+            </div>
+        </div>
+        <div class="details">
+            <h2>Classic Tee</h2>
+            <div class="stars">★★★★☆ (4.0)</div>
+            <div class="price">₹1,299.00</div>
+            <div class="stock">Only 5 left in stock!</div>
+
+            <div class="selectors">
+                <div class="selector-group">
+                    <label class="selector-label">Sizes</label>
+                    <div class="selector-options" id="sizes">
+                        <div class="option">S</div>
+                        <div class="option">M</div>
+                        <div class="option">L</div>
+                        <div class="option">XL</div>
+                    </div>
+                </div>
+                <div class="selector-group">
+                    <label class="selector-label">Color</label>
+                    <div class="selector-options" id="colors">
+                        <div class="color-circle" style="background: black;"></div>
+                        <div class="color-circle" style="background: white;"></div>
+                        <div class="color-circle" style="background: #b71c1c;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qty">
+                <button id="minus">−</button>
+                <span id="quantity">1</span>
+                <button id="plus">+</button>
+            </div>
+
+            <button class="add-cart" id="addToCart">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="desc-tabs">
+        <div class="tabs">
+            <div class="tab active" data-tab="desc">Description</div>
+            <div class="tab" data-tab="shipping">Shipping & Returns</div>
+            <div class="tab" data-tab="fit">Size & Fit</div>
+            <div class="tab" data-tab="fit">Review</div>
+        </div>
+        <div class="tab-content" id="tab-content">
+            A versatile staple, the Classic Tee is crafted from soft cotton jersey for all-day comfort and timeless
+            style.
+        </div>
+    </div>
+
+    <section class="product-filter-section">
+        <h2>You may like This</h2>
+
+
+        <div class="suggestion" id="filtered-products">
+            <div class="product-card" data-category="shirts" data-name="Slim Fit Shirt" data-price="1299"
+                data-img="img1.jpg">
+                <img src="img1.jpg" alt="Shirt">
+                <p class="product-title">Slim Fit Shirt</p>
+                <p class="product-price">₹1,299</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="trousers" data-name="Linen Blend Trousers" data-price="1799"
+                data-img="img1.jpg">
+                <img src="img1.jpg" alt="Trousers">
+                <p class="product-title">Linen Blend Trousers</p>
+                <p class="product-price">₹1,799</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <div class="product-card" data-category="jeans">
+                <img src="img1.jpg" alt="Jeans">
+                <p class="product-title">Baggy Fit Jeans</p>
+                <p class="product-price">₹1,699</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <div class="product-card" data-category="t-shirts">
+                <img src="img1.jpg" alt="T-Shirt">
+                <p class="product-title">Cotton Oversized Tee</p>
+                <p class="product-price">₹799</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <div class="product-card" data-category="shorts">
+                <img src="img1.jpg" alt="Shorts">
+                <p class="product-title">Chino Shorts</p>
+                <p class="product-price">₹899</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="close-cart" id="close-cart">×</span>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <p>Subtotal: ₹<span id="cart-subtotal">0</span></p>
+            <div class="cart-actions">
+                <button id="buy-now-btn">Buy Now</button>
+                <button id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10 px-4">
+        <div class="logo">
+            <img src="logo.jpg" alt="NEXORA Logo">
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+                <h3 class="font-bold mb-2">Shop</h3>
+                <ul>
+                    <li>Men</li>
+                    <li>Women</li>
+                    <li>Accessories</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Support</h3>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Returns</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Company</h3>
+                <ul>
+                    <li>About Us</li>
+                    <li>AI Tech</li>
+                    <li>Blog</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2">Follow Us</h3>
+                <ul>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                    <li>Facebook</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="text-center text-gray-400 mt-10">© 2025 NEXORA. All rights reserved.</p>
+    </footer>
+
+
+
+    <script>
+        // Tab switching
+        const tabs = document.querySelectorAll('.tab');
+        const content = document.getElementById('tab-content');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const tabName = tab.dataset.tab;
+                if (tabName === 'desc') {
+                    content.textContent = "A versatile staple, the Classic Tee is crafted from soft cotton jersey for all-day comfort and timeless style.";
+                } else if (tabName === 'shipping') {
+                    content.textContent = "Free standard shipping on orders over $50. Returns accepted within 30 days of delivery.";
+                } else {
+                    content.textContent = "Model is 6'1\" and wears size M. Standard fit. Check our size guide for exact measurements.";
+                }
+            });
+        });
+
+        // Quantity control
+        const plusBtn = document.getElementById('plus');
+        const minusBtn = document.getElementById('minus');
+        const qty = document.getElementById('quantity');
+        let quantity = 1;
+
+        plusBtn.addEventListener('click', () => {
+            quantity++;
+            qty.textContent = quantity;
+        });
+
+        minusBtn.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                qty.textContent = quantity;
+            }
+        });
+
+        // Size selector
+        document.querySelectorAll('#sizes .option').forEach(el => {
+            el.addEventListener('click', () => {
+                document.querySelectorAll('#sizes .option').forEach(e => e.classList.remove('active'));
+                el.classList.add('active');
+            });
+        });
+
+        // Color selector
+        document.querySelectorAll('#colors .color-circle').forEach(el => {
+            el.addEventListener('click', () => {
+                document.querySelectorAll('#colors .color-circle').forEach(e => e.classList.remove('active'));
+                el.classList.add('active');
+            });
+        });
+
+        // Add to cart
+        document.getElementById('addToCart').addEventListener('click', () => {
+            const size = document.querySelector('#sizes .option.active')?.textContent;
+            const color = document.querySelector('#colors .color-circle.active')?.style.backgroundColor;
+            if (!size || !color) {
+                alert('Please select size and color!');
+                return;
+            }
+            alert(`Added ${quantity} item(s) of size ${size} and color ${color} to cart.`);
+        });
+    </script>
+    <script>
+        let cartItems = [];
+        const cartSidebar = document.getElementById("cart-sidebar");
+        const cartItemsContainer = document.getElementById("cart-items");
+        const cartCount = document.getElementById("cart-count");
+        const cartSubtotal = document.getElementById("cart-subtotal");
+
+        // Button Click
+        document.getElementById("addToCart").addEventListener("click", function () {
+            const item = {
+                name: "Slim Fit Shirt",
+                price: 1299,
+                img: "img1.jpg"
+            };
+
+            cartItems.push(item);
+            updateCart();
+            cartSidebar.classList.add("active"); // Open the sidebar
+        });
+
+        // Close cart sidebar
+        document.getElementById("close-cart").addEventListener("click", () => {
+            cartSidebar.classList.remove("active");
+        });
+
+        function updateCart() {
+            // Update cart counter
+            cartCount.textContent = cartItems.length;
+
+            // Clear cart UI
+            cartItemsContainer.innerHTML = "";
+
+            let subtotal = 0;
+
+            // Add new items to UI
+            cartItems.forEach((item, index) => {
+                subtotal += item.price;
+
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;">
+        <div style="flex: 1; padding-left: 10px;">
+          <p style="margin: 0; font-weight: 600;">${item.name}</p>
+          <p style="margin: 0; color: #777;">₹${item.price}</p>
+        </div>
+        <button onclick="removeItem(${index})" style="background: none; border: none; color: red; font-size: 18px;">×</button>
+      `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            cartSubtotal.textContent = subtotal;
+        }
+
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+    </script>
+
+    <script src="navbar.js"></script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>
